@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-
-  
+<button @click="goConcept()" >dss</button>
+  <v-icon class="login-icon">accessibility</v-icon>
   </div>
 </template>
 
@@ -17,6 +17,6 @@ export default {
  
 }
 </script>
-<style lang="sass" scoped>
+<style lang="scss">
 
 </style>

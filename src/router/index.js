@@ -12,22 +12,22 @@ const routes = [
     component: MainPage,
   },
   {
-    path: "/Foto",
+    path: "/foto",
     name: "Foto",
     component: () => import("../views/Foto.vue"),
   },
   {
-    path: "/Events",
+    path: "/events",
     name: "Events",
     component: () => import("../views/Events.vue"),
   },
   {
-    path: "/Contacts",
+    path: "/contacts",
     name: "Contacts",
     component: () => import("../views/Contacts.vue"),
   },
   {
-    path: "/Сoncept",
+    path: "/concept",
     name: "Сoncept",
     component: () => import("../views/Сoncept.vue"),
   },
