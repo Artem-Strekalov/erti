@@ -5,7 +5,10 @@ import MainPage from "../views/MainPage.vue";
 Vue.use(VueRouter);
 
 const routes = [
- 
+  {
+    path: "*",
+    redirect: "/mainPage",
+  },
   {
     path: "/",
     name: "MainPage",
@@ -30,6 +33,21 @@ const routes = [
     path: "/concept",
     name: "Сoncept",
     component: () => import("../views/Сoncept.vue"),
+  },
+  {
+    path: "/menu",
+    name: "Menu",
+    component: () => import("../views/Menu.vue"),
+  },
+  {
+    path: "/ourTeam",
+    name: "OurTeam",
+    component: () => import("../views/OurTeam.vue"),
+  },
+  {
+    path: "/wine",
+    name: "Wine",
+    component: () => import("../views/Wine.vue"),
   },
 ];
 

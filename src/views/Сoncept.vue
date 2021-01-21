@@ -2,24 +2,27 @@
   <div class="wrapper">
     <div class="container">
       <div class="navigation">
-        <a href="" class="navigation__item">ГЛАВНАЯ</a>
-        <a href="" class="navigation__item">МЕНЮ</a>
-        <a href="" class="navigation__item">ВИНО</a>
-        <a href="" class="navigation__item">КОНЦЕПЦИЯ</a>
-        <img src="../assets/erti-logo.png" alt="" />
-        <a href="" class="navigation__item">МЕДИА</a>
-        <a href="" class="navigation__item">СОБЫТИЯ</a>
-        <a href="" class="navigation__item">НАША КОМАНДА</a>
-        <a href="" class="navigation__item">КОНТАКТЫ</a>
+        <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
+        <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
+        <a><router-link :to="{ name: 'Menu' }">ВИНО</router-link></a>
+        <a><router-link :to="{ name: 'Сoncept' }">КОНЦЕПЦИЯ</router-link></a>
+        <img src="../assets/erti-logo.png" alt=""  />
+        <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
+        <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
+        <a><router-link :to="{ name: 'OurTeam' }">НАША КОМАНДА</router-link></a>
+        <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
       </div>
       <div class="content">
         <div class="about-erti">
           <h1>“ГАМАРДЖОБА”</h1>
           <p>
-            Ресторан «ERTI», это место,<br> где сочетаются древние<br> грузинские
-            традиции и свежие<br> веяния современности. Здесь<br> истинно кавказское
-            радушие и<br> гостеприимство сливаются с<br> изысканным европейским <br>стилем и
-            душевной<br>атмосферой.
+            Ресторан «ERTI», это место,<br />
+            где сочетаются древние<br />
+            грузинские традиции и свежие<br />
+            веяния современности. Здесь<br />
+            истинно кавказское радушие и<br />
+            гостеприимство сливаются с<br />
+            изысканным европейским <br />стилем и душевной<br />атмосферой.
           </p>
         </div>
         <div class="about-Georgia">
@@ -33,14 +36,6 @@
           </p>
         </div>
       </div>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Caveat&display=swap"
-        rel="stylesheet"
-      />
     </div>
   </div>
 </template>
@@ -71,7 +66,7 @@ export default {};
       position: relative;
       height: 154px;
       width: 100%;
-      .navigation__item {
+      a {
         font-family: Open Sans;
         font-style: normal;
         font-size: 12px;
@@ -92,7 +87,7 @@ export default {};
       width: 100%;
       .about-erti {
         text-align: right;
-         width: 395px;
+        width: 395px;
         h1 {
           font-family: Comic Sans MS;
           font-style: normal;
@@ -108,7 +103,7 @@ export default {};
           font-size: 30px;
           line-height: 25px;
           color: #ffffff;
-         
+
           text-align: center;
           margin: 0;
         }
