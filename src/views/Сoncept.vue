@@ -16,10 +16,10 @@
         <div class="about-erti">
           <h1>“ГАМАРДЖОБА”</h1>
           <p>
-            Ресторан «ERTI», это место, где сочетаются древние грузинские
-            традиции и свежие веяния современности. Здесь истинно кавказское
-            радушие и гостеприимство сливаются с изысканным европейским стилем и
-            душевной атмосферой.
+            Ресторан «ERTI», это место,<br> где сочетаются древние<br> грузинские
+            традиции и свежие<br> веяния современности. Здесь<br> истинно кавказское
+            радушие и<br> гостеприимство сливаются с<br> изысканным европейским <br>стилем и
+            душевной<br>атмосферой.
           </p>
         </div>
         <div class="about-Georgia">
@@ -91,12 +91,13 @@ export default {};
       justify-content: space-between;
       width: 100%;
       .about-erti {
+        text-align: right;
+         width: 395px;
         h1 {
           font-family: Comic Sans MS;
           font-style: normal;
           font-weight: normal;
           font-size: 50px;
-          line-height: 20px;
           color: #ffffff;
           margin: 0 0 60px 0;
         }
@@ -107,12 +108,13 @@ export default {};
           font-size: 30px;
           line-height: 25px;
           color: #ffffff;
-          width: 330.68px;
+         
           text-align: center;
+          margin: 0;
         }
       }
       .about-Georgia {
-        text-align: right;
+        text-align: center;
         p {
           width: 755px;
           font-family: Caveat;
