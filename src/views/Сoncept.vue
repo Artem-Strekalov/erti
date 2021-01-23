@@ -6,7 +6,7 @@
         <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
         <a><router-link :to="{ name: 'Menu' }">ВИНО</router-link></a>
         <a><router-link :to="{ name: 'Сoncept' }">КОНЦЕПЦИЯ</router-link></a>
-        <img src="../assets/erti-logo.png" alt=""  />
+        <img src="../assets/erti-logo.png" alt="" />
         <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
         <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
         <a><router-link :to="{ name: 'OurTeam' }">НАША КОМАНДА</router-link></a>
@@ -57,6 +57,9 @@ export default {};
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+    @media (max-width: 1325px) {
+      width: 1200px;          
+    }
     .navigation {
       display: flex;
       flex-direction: row;
