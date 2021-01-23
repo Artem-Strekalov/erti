@@ -68,6 +68,7 @@ export default {};
       margin: 0 0 100px 0;
       position: relative;
       height: 154px;
+      
       width: 100%;
       a {
         font-family: Open Sans;
