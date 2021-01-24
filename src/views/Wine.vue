@@ -81,7 +81,7 @@ export default {};
           font-weight: 600;
           font-size: 30px;
           color: #ffffff;
-          height: 60px;
+          margin: 0 0 200px 0;
         }
       }
       .slider {
@@ -89,6 +89,9 @@ export default {};
         border-radius: 15px;
         width: 56%;
         height: 700px;
+        @media (max-height: 860px) {
+          height: 650px;
+        }
       }
     }
   }
