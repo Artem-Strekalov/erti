@@ -1,44 +1,41 @@
 <template>
   <div class="wrapper">
-    <!-- <button @click="goConcept()" >dss</button>
-  <v-icon class="login-icon">accessibility</v-icon> -->
     <div class="title-block">
       <div class="navigation">
-        <a href="" class="navigation__item">ГЛАВНАЯ</a>
-        <a href="" class="navigation__item">МЕНЮ</a>
-        <a href="" class="navigation__item">ВИНО</a>
-        <a href="" class="navigation__item">КОНЦЕПЦИЯ</a>
-        <span><img src="../assets/erti-logo.png" alt=""/></span>
-        <a href="" class="navigation__item">МЕДИА</a>
-        <a href="" class="navigation__item">СОБЫТИЯ</a>
-        <a href="" class="navigation__item">НАША КОМАНДА</a>
-        <a href="" class="navigation__item">КОНТАКТЫ</a>
+        <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
+        <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
+        <a><router-link :to="{ name: 'Menu' }">ВИНО</router-link></a>
+        <a><router-link :to="{ name: 'Сoncept' }">КОНЦЕПЦИЯ</router-link></a>
+        <span><img src="../assets/erti-logo.png" alt="" /></span>
+        <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
+        <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
+        <a><router-link :to="{ name: 'OurTeam' }">НАША КОМАНДА</router-link></a>
+        <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
       </div>
 
       <div class="content-block">
-        <span>ГРУЗИНСКИЙ РЕСТОРАН</span>
-        <span class="title"><img src="../assets/title.png" alt=""/></span>
-        <div class="buttons">
-          <button>ЗАБРОНИРОВАТЬ СТОЛ</button>
-          <button class="opacity-button">ЗАКАЗАТЬ ДОСТАВКУ</button>
+        <div class="centralBlock">
+          <span>ГРУЗИНСКИЙ РЕСТОРАН</span>
+          <span class="title"><img src="../assets/title.png" alt="" /></span>
+          <div class="buttons">
+            <button>ЗАБРОНИРОВАТЬ СТОЛ</button>
+            <button class="opacity-button">ЗАКАЗАТЬ ДОСТАВКУ</button>
+          </div>
+        </div>
+        <div class="socialNetworks">
+          <div class="instagram"><a href="" class="fab fa-instagram"></a></div>
+          <div class="facebook"><a href="" class="fab fa-facebook-f"></a></div>
+          <div class="telegram">
+            <a href="" class="fab fa-telegram-plane"></a>
+          </div>
         </div>
       </div>
     </div>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
   </div>
 </template>
 
 <script>
-export default {
-  methods: {
-    goConcept() {
-      return this.$router.replace("Concept");
-    },
-  },
-};
+export default {};
 </script>
 
 <style lang="scss">
@@ -51,6 +48,7 @@ export default {
   background-position: center;
   overflow: hidden;
   height: 100vh;
+
   .title-block {
     height: 937px;
     display: flex;
@@ -67,7 +65,7 @@ export default {
       position: relative;
       height: 154px;
       width: 100%;
-      .navigation__item {
+      a {
         font-family: Open Sans;
         font-style: normal;
         font-size: 12px;
@@ -85,48 +83,19 @@ export default {
           margin: 15px;
         }
       }
-      span::before {
-        content: "";
-        position: absolute;
-        width: 8px;
-        height: 618.15px;
-        left: -355px;
-        top: -162px;
-        background: linear-gradient(
-          -75deg,
-          #f5c400 26.12%,
-          rgba(245, 196, 0, 0) 100%
-        );
-        border-radius: 202px;
-        transform: matrix(0, 1, 1, 0, 0, 0);
-      }
-       span::after {
-        content: "";
-        position: absolute;
-        width: 8px;
-        height: 618.15px;
-        right: -354px;
-        top: -162px;
-        background: linear-gradient(
-          0deg,
-          #f5c400 26.12%,
-          rgba(245, 196, 0, 0) 100%
-        );
-        border-radius: 202px;
-       transform: matrix(0, -1, -1, 0, 0, 0);
-      }
     }
 
     .content-block {
-      display: flex;
-      align-items: center;
       width: 1280px;
       height: 600px;
-      margin: 0 auto;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0 auto;
+      justify-content: center;
+
+      .centralBlock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       span {
         font-family: Open Sans;
         font-size: 12px;
@@ -177,6 +146,26 @@ export default {
         .opacity-button {
           background: #e8c10000;
           border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      .socialNetworks {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 220px;
+        div {
+          width: 60px;
+          height: 60px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 90px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            font-size: 20px;
+            color: white;
+          }
         }
       }
     }
