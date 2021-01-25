@@ -34,7 +34,7 @@
               </div>
             </div>
           </div>
-          <span>Нельзя купить счастье, но можно купить вино...</span>
+         
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@ export default {
       sliderList: [
         {
           img: "https://i.ibb.co/rHcWX9D/wine1.png",
-        },
+        },{img:'https://i.ibb.co/MsJg7Pb/image.png'}
       ],
     };
   },
