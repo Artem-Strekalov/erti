@@ -4,9 +4,9 @@
       <div class="navigation">
         <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
         <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
-        <a><router-link :to="{ name: 'Menu' }">ВИНО</router-link></a>
+        <a><router-link :to="{ name: 'Wine' }">ВИНО</router-link></a>
         <a><router-link :to="{ name: 'Сoncept' }">КОНЦЕПЦИЯ</router-link></a>
-        <span><img src="../assets/erti-logo.png" alt="" /></span>
+        <span><img src="../assets/erti-logo.png" alt=""/></span>
         <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
         <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
         <a><router-link :to="{ name: 'OurTeam' }">НАША КОМАНДА</router-link></a>
@@ -14,9 +14,10 @@
       </div>
 
       <div class="content-block">
+        <div class="block"></div>
         <div class="centralBlock">
           <span>ГРУЗИНСКИЙ РЕСТОРАН</span>
-          <span class="title"><img src="../assets/title.png" alt="" /></span>
+          <span class="title"><img src="../assets/title.png" alt=""/></span>
           <div class="buttons">
             <button>ЗАБРОНИРОВАТЬ СТОЛ</button>
             <button class="opacity-button">ЗАКАЗАТЬ ДОСТАВКУ</button>
@@ -50,10 +51,11 @@ export default {};
   height: 100vh;
 
   .title-block {
-    height: 937px;
+    height: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     width: 1280px;
     position: relative;
     .navigation {
@@ -61,9 +63,7 @@ export default {};
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      margin: 0 0 226px 0;
       position: relative;
-      height: 154px;
       width: 100%;
       a {
         font-family: Open Sans;
@@ -74,23 +74,33 @@ export default {};
         color: #ffffff;
         width: 133px;
         text-align: center;
+        transition: 350ms;
       }
-
+      a:hover{
+        font-size: 14px;
+        transition: 350ms;
+      }
+      a:active{
+        color: rgb(243, 207, 46);
+      }
       span {
         position: relative;
         img {
-          transform: translateY(56%);
           margin: 15px;
+          width: 120px;
+          height: 120px;
         }
       }
     }
 
     .content-block {
-      width: 1280px;
+      width: 100%;
       height: 600px;
       display: flex;
-      justify-content: center;
-
+      justify-content: space-between;
+      .block {
+        width: 60px;
+      }
       .centralBlock {
         display: flex;
         flex-direction: column;
@@ -131,8 +141,9 @@ export default {};
         margin: 0 0 92px 0;
 
         button {
-          background: #e8c300;
+          background: #e8c10000;
           border-radius: 5px;
+          border: 1px solid rgba(255, 255, 255, 0.5);
           font-family: Open Sans;
           font-weight: bold;
           font-size: 12px;
@@ -142,10 +153,14 @@ export default {};
           color: white;
           width: 200px;
           height: 60px;
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+          transition: 0.3s;
         }
-        .opacity-button {
-          background: #e8c10000;
-          border: 1px solid rgba(255, 255, 255, 0.5);
+        button:hover {
+          background: #e8c300;
+          box-shadow: 0 15px 20px rgba(229, 202, 46, 0.4);
+          color: white;
+          transform: translateY(-7px);
         }
       }
 
@@ -162,10 +177,15 @@ export default {};
           display: flex;
           justify-content: center;
           align-items: center;
+          transition: 300ms;
           a {
             font-size: 20px;
             color: white;
           }
+        }
+        div:hover{
+          transform: rotate(15deg);
+          transition: 300ms;
         }
       }
     }
