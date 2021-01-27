@@ -12,7 +12,11 @@
         <a><router-link :to="{ name: 'OurTeam' }">НАША КОМАНДА</router-link></a>
         <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
       </div>
+
       <div class="content">
+        <button v-on:click="prevSlide">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </button>
         <div class="carusel">
           <div class="slider js-slider">
             <div
@@ -24,16 +28,13 @@
                 v-for="slide in sliderList"
                 v-bind:key="slide.img"
                 :style="'background-image: url(' + slide.img + ')'"
-              >
-                <button v-on:click="prevSlide">
-                  <i class="fa fa-chevron-left" aria-hidden="true"></i></button
-                ><button v-on:click="nextSlide">
-                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </button>
-              </div>
+              ></div>
             </div>
           </div>
         </div>
+        <button v-on:click="nextSlide">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -54,17 +55,15 @@ export default {
       // Список изображений
       sliderList: [
         {
-          img: "https://i.ibb.co/rHcWX9D/wine1.png",
+          img: "https://i.ibb.co/0h7Bx9w/1.png",
         },
         {
-          img:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Status_iucn_DD_icon.svg/1024px-Status_iucn_DD_icon.svg.png",
+          img: "https://i.ibb.co/FzHRSBN/2.png",
         },
       ],
     };
   },
   methods: {
-    
     // Иницилизация слайдера
     initSlider() {
       // Получаем элементы сладера и его слайдов
@@ -85,19 +84,20 @@ export default {
           this.sliderActive * this.sliderOffsetStep -
           this.sliderOffsetStep
         );
-      if(id==2){
-        this.isActiveNewWrapper = true
-      } if(id==1){
-        this.isActiveNewWrapper= false
-      }
-        /* Здесь напиши условие если id =...то класс меняется */
+        if (id == 2) {
+          this.isActiveNewWrapper = true;
+        }
+        if (id == 1) {
+          this.isActiveNewWrapper = false;
+        }
+        console.log(id)
       }
     },
     // Следующий слайд
     nextSlide() {
       if (this.sliderActive < this.sliderAllCount) {
         this.sliderActive += 1;
-    
+
         this.openSlide(this.sliderActive);
       }
     },
@@ -120,11 +120,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
 .wrapper {
   display: flex;
   flex-direction: column;
-  background: url("../assets/menu-bg.jpg") no-repeat;
+  background: url("../assets/menu1.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -161,10 +160,15 @@ export default {
       }
     }
     .content {
-      width: 1000px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 30px 0 30px;
+
       .carusel {
         width: 100%;
         height: 500px;
+        padding: 0 30px 0 30px;
 
         .slider {
           width: 100%;
@@ -182,19 +186,20 @@ export default {
           &__slide {
             min-width: 100%;
             height: 100%;
-            background-size: cover;
+
+            background-size: contain;
             background-position: center;
             flex: 1 100%;
             display: flex;
             justify-content: space-between;
-            i {
-              margin-top: 80px;
-              font-size: 50px;
-              color: white;
-              opacity: 0.3;
-            }
           }
         }
+      }
+      i {
+        margin-top: 80px;
+        font-size: 50px;
+        color: white;
+        opacity: 0.3;
       }
     }
   }
