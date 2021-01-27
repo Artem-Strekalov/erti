@@ -1,10 +1,11 @@
 <template>
-  <div class="content">
-      <h1>ddddddsdsds</h1>
+  <div class="container">
+    
   </div>
 </template>
 <script>
-export default {};
+
 </script>
 <style lang="scss" scoped>
+
 </style> 

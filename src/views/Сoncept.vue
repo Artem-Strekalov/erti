@@ -4,7 +4,7 @@
       <div class="navigation">
         <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
         <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
-        <a><router-link :to="{ name: 'Menu' }">ВИНО</router-link></a>
+        <a><router-link :to="{ name: 'Wine' }">ВИНО</router-link></a>
         <a><router-link :to="{ name: 'Сoncept' }">КОНЦЕПЦИЯ</router-link></a>
         <img src="../assets/erti-logo.png" alt="" />
         <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
