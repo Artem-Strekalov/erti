@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :class="{ newWrapper: isActiveNewWrapper }">
     <div class="container">
       <div class="navigation">
         <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
@@ -42,6 +42,7 @@
 export default {
   data() {
     return {
+      isActiveNewWrapper: false,
       // Всего слайдов
       sliderAllCount: 0,
       // Номер активного слайда
@@ -55,13 +56,17 @@ export default {
         {
           img: "https://i.ibb.co/rHcWX9D/wine1.png",
         },
-        
+        {
+          img:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Status_iucn_DD_icon.svg/1024px-Status_iucn_DD_icon.svg.png",
+        },
       ],
     };
   },
   methods: {
+    
     // Иницилизация слайдера
-    initSlider: function () {
+    initSlider() {
       // Получаем элементы сладера и его слайдов
       let sliderBody = this.$el.querySelector(".js-slider");
       let sliderSlidies = sliderBody.querySelectorAll(".js-slide");
@@ -71,25 +76,33 @@ export default {
       this.sliderAllCount = sliderSlidies.length;
     },
     // Открыть слайд по номеру
-    openSlide: function (id) {
+    openSlide(id) {
       if (id > 0 && id <= this.sliderAllCount) {
         this.sliderActive = id;
+
         // Сдвигаем элемент со слайдами
         this.sliderOffsetLeft = -(
           this.sliderActive * this.sliderOffsetStep -
           this.sliderOffsetStep
         );
+      if(id==2){
+        this.isActiveNewWrapper = true
+      } if(id==1){
+        this.isActiveNewWrapper= false
+      }
+        /* Здесь напиши условие если id =...то класс меняется */
       }
     },
     // Следующий слайд
-    nextSlide: function () {
+    nextSlide() {
       if (this.sliderActive < this.sliderAllCount) {
         this.sliderActive += 1;
+    
         this.openSlide(this.sliderActive);
       }
     },
     // Предыдущий слайд
-    prevSlide: function () {
+    prevSlide() {
       if (this.sliderActive > 1) {
         this.sliderActive -= 1;
         this.openSlide(this.sliderActive);
@@ -107,16 +120,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
 .wrapper {
   display: flex;
   flex-direction: column;
-  background: url("../assets/kinza.jpg") no-repeat;
+  background: url("../assets/menu-bg.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   overflow: hidden;
   height: 100vh;
   .container {
-  
     width: 1280px;
     @media (max-width: 1325px) {
       width: 1200px;
@@ -148,12 +161,11 @@ export default {
       }
     }
     .content {
-  width: 1000px;
+      width: 1000px;
       .carusel {
         width: 100%;
         height: 500px;
-        
-        
+
         .slider {
           width: 100%;
           height: 100%;
@@ -183,7 +195,15 @@ export default {
             }
           }
         }
+      }
     }
   }
-}}
+}
+.newWrapper {
+  background: url("../assets/kinza.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  height: 100vh;
+}
 </style>
