@@ -36,7 +36,9 @@
           <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </button>
       </div>
+      
     </div>
+    
   </div>
 </template>
 <script>
