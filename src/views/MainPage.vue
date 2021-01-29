@@ -20,7 +20,9 @@
           <span class="title"><img src="../assets/title.png" alt="" /></span>
           <div class="buttons">
             <button @click="dialog = true">ЗАБРОНИРОВАТЬ СТОЛ</button>
-            <button class="opacity-button">ЗАКАЗАТЬ ДОСТАВКУ</button>
+            <form action='https://broniboy.ru/rostov-na-donu/restaurants/p_erti/'>
+            <button  class="opacity-button">ЗАКАЗАТЬ ДОСТАВКУ</button>
+            </form>
           </div>
         </div>
         <div class="socialNetworks">
@@ -33,13 +35,7 @@
       </div>
     </div>
 
-    <v-dialog
-      
-
-      v-model="dialog"
-      persistent
-      max-width="600px"
-    >
+    <v-dialog v-model="dialog" persistent max-width="600px">
       <v-card>
         <v-card-title>
           <span class="headline">Ваше бронирование</span>
@@ -69,7 +65,7 @@
                 ></v-text-field>
               </v-col>
 
-              <v-col cols="11" sm="6" >
+              <v-col cols="11" sm="6">
                 <v-select
                   color="#e8c300"
                   :items="['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+']"
@@ -101,19 +97,26 @@ export default {
   data() {
     return {
       dialog: false,
+     
     };
   },
+ 
 };
 </script>
 
 <style lang="scss">
 .wrapper {
+  .v-sheet.v-card:not(.v-sheet--outlined) {
+    font-family: Open Sans;
+    font-weight: bold;
+  }
   .v-sheet {
     background-color: red;
   }
   .col-12 {
     max-width: 50%;
-  }.col-11 {
+  }
+  .col-11 {
     max-width: 33%;
   }
   display: flex;
