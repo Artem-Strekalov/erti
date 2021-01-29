@@ -1,12 +1,12 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" data-app>
     <div class="title-block">
       <div class="navigation">
         <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
         <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
         <a><router-link :to="{ name: 'Wine' }">ВИНО</router-link></a>
         <a><router-link :to="{ name: 'Сoncept' }">КОНЦЕПЦИЯ</router-link></a>
-        <span><img src="../assets/erti-logo.png" alt=""/></span>
+        <span><img src="../assets/erti-logo.png" alt="" /></span>
         <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
         <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
         <a><router-link :to="{ name: 'OurTeam' }">НАША КОМАНДА</router-link></a>
@@ -17,10 +17,12 @@
         <div class="block"></div>
         <div class="centralBlock">
           <span>ГРУЗИНСКИЙ РЕСТОРАН</span>
-          <span class="title"><img src="../assets/title.png" alt=""/></span>
+          <span class="title"><img src="../assets/title.png" alt="" /></span>
           <div class="buttons">
-            <button>ЗАБРОНИРОВАТЬ СТОЛ</button>
-            <button class="opacity-button">ЗАКАЗАТЬ ДОСТАВКУ</button>
+            <button @click="dialog = true">ЗАБРОНИРОВАТЬ СТОЛ</button>
+            <form action='https://broniboy.ru/rostov-na-donu/restaurants/p_erti/'>
+            <button  class="opacity-button">ЗАКАЗАТЬ ДОСТАВКУ</button>
+            </form>
           </div>
         </div>
         <div class="socialNetworks">
@@ -32,15 +34,91 @@
         </div>
       </div>
     </div>
+
+    <v-dialog v-model="dialog" persistent max-width="600px">
+      <v-card>
+        <v-card-title>
+          <span class="headline">Ваше бронирование</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  color="#e8c300"
+                  label="Ваше имя*"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  color="#e8c300"
+                  label="Ваша Фамилия"
+                ></v-text-field>
+              </v-col>
+
+              <v-col cols="12">
+                <v-text-field
+                  color="#e8c300"
+                  label="Ваш номер телефона*"
+                  required
+                ></v-text-field>
+              </v-col>
+
+              <v-col cols="11" sm="6">
+                <v-select
+                  color="#e8c300"
+                  :items="['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+']"
+                  label="Количество гостей*"
+                  required
+                ></v-select>
+              </v-col>
+              <v-col cols="12" sm="6"> </v-col>
+            </v-row>
+          </v-container>
+          <small style="color: red">*Поля обязательные к заполнению</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" text @click="dialog = false">
+            Закрыть
+          </v-btn>
+          <v-btn color="red" text @click="dialog = false">
+            Забронировать
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      dialog: false,
+     
+    };
+  },
+ 
+};
 </script>
 
 <style lang="scss">
 .wrapper {
+  .v-sheet.v-card:not(.v-sheet--outlined) {
+    font-family: Open Sans;
+    font-weight: bold;
+  }
+  .v-sheet {
+    background-color: red;
+  }
+  .col-12 {
+    max-width: 50%;
+  }
+  .col-11 {
+    max-width: 33%;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,11 +154,11 @@ export default {};
         text-align: center;
         transition: 350ms;
       }
-      a:hover{
+      a:hover {
         font-size: 14px;
         transition: 350ms;
       }
-      a:active{
+      a:active {
         color: rgb(243, 207, 46);
       }
       span {
@@ -183,7 +261,7 @@ export default {};
             color: white;
           }
         }
-        div:hover{
+        div:hover {
           transform: rotate(15deg);
           transition: 300ms;
         }
