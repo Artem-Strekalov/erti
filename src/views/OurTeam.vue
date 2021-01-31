@@ -9,7 +9,7 @@
         <img src="../assets/erti-logo.png" alt="" />
         <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
         <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
-        <a><router-link :to="{ name: 'OurTeam' }">НАША КОМАНДА</router-link></a>
+        <a><router-link :to="{ name: 'OurTeam' }">КОМАНДА</router-link></a>
         <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
       </div>
       <div class="content-block">
@@ -33,6 +33,7 @@ export default {};
 .wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: url("../assets/team-bg.jpg") no-repeat;
   background-size: cover;
   background-position: center;
@@ -43,15 +44,11 @@ export default {};
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 1280px;
+   max-width: 1300px;
+    width: 100%;
     height: 100vh;
     padding: 0 0 178px 0;
-    @media (max-width: 1325px) {
-      width: 1200px;
-    }
-    @media (max-width: 1220px) {
-      width: 1150px;
-    }
+   
     .navigation {
       display: flex;
       flex-direction: row;
@@ -83,6 +80,7 @@ export default {};
       img {
         width: 446px;
         height: 498px;
+        background-size: contain;
       }
       .info-block {
         color: #ffffff;

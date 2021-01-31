@@ -16,7 +16,7 @@
         <div class="about-erti">
           <!-- <h1>“ГАМАРДЖОБА”</h1> -->
           <p>
-            Ресторан «ERTI», это место,<br />
+            Ресторан <span style="color:#e8c300">«ERTI»</span>, это место,<br />
             где сочетаются древние<br />
             грузинские традиции и свежие<br />
             веяния современности. Здесь<br />
@@ -28,7 +28,7 @@
         <div class="about-Georgia">
           <img src="../assets/mountain.png" alt="" />
           <p>
-            Грузия – великолепная страна, которая удивляет своей красотой,
+            ГРУЗИЯ – великолепная страна, которая удивляет своей красотой,
             покоряет кухней и вином. Именно этот дух мы и стремились
             воспроизвести в нашем ресторане «ERTI». И если вы однажды были в
             Грузии, вы обязательно в неё вернётесь. А если нет — мы станем вашим
@@ -60,7 +60,7 @@ export default {};
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-    
+
       position: relative;
       height: 154px;
       width: 100%;
@@ -91,7 +91,7 @@ export default {};
           font-style: normal;
           font-weight: normal;
           font-size: 50px;
-          color:  #e8c300;
+          color: #e8c300;
           margin: 0 0 60px 0;
         }
         p {

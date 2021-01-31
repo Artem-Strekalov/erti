@@ -106,6 +106,7 @@ export default {
         width: 70%;
         height: 450px;
         padding-right: 20px;
+        
         i {
           font-size: 40px;
           color: white;
