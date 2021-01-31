@@ -1,21 +1,29 @@
 <template>
-  <div class="main">
+  <div class="main" data app>
     <div class="nav"></div>
-
-    <div class="content" data-app>
-      <v-app>
-        <div>
-          <v-carousel v-model="model"  show-arrows=false>
-            <v-carousel-item
-              
-              v-for="(item, i) in items"
-              :key="i"
-              :src="item.src"
-            ></v-carousel-item>
-          </v-carousel>
-        </div>
-      </v-app>
-    </div>
+    <v-app>
+      <div class="content">
+        <button @click="model--">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <v-carousel
+          :hide-delimiters="true"
+          :show-arrows="false"
+          :hide-delimiter-background="true"
+          height="500px"
+          v-model="model"
+        >
+          <v-carousel-item
+            v-for="(item, i) in items"
+            :key="i"
+            :src="item.src"
+          ></v-carousel-item>
+        </v-carousel>
+        <button @click="model++">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </v-app>
   </div>
   <!-- cycle
         height=100%
@@ -28,7 +36,7 @@ export default {
     return {
       items: [
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
+          src: "https://cdn.tvc.ru/pictures/o/131/475.jpg",
         },
         {
           src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
@@ -55,7 +63,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped >
+<style lang="scss"  >
 .main {
   height: 100%;
   width: 100%;
@@ -68,8 +76,11 @@ export default {
     background-color: red;
   }
   .content {
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
+    .v-image__image--cover {
+      background-size: contain;
+    }
   }
 }
 </style>

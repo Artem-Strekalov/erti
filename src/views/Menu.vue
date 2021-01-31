@@ -23,11 +23,13 @@
             height="500px"
             v-model="model"
           >
-            <v-carousel-item
-              v-for="(item, i) in items"
-              :key="i"
-              :src="item.src"
-            ></v-carousel-item>
+            <div class="menu">
+              <v-carousel-item
+                v-for="(item, i) in items"
+                :key="i"
+                :src="item.src"
+              ></v-carousel-item>
+            </div>
           </v-carousel>
           <button @click="model++">
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
@@ -58,8 +60,8 @@ export default {
     slider() {
       if (this.model == 1) {
         this.isActiveNewWrapper = true;
-      } else{
-        this.isActiveNewWrapper= false
+      } else {
+        this.isActiveNewWrapper = false;
       }
     },
   },
@@ -91,6 +93,7 @@ export default {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+
       height: 154px;
       width: 100%;
       a {
@@ -116,8 +119,10 @@ export default {
       .v-window {
         padding: 0 20px;
       }
-      .v-image__image--cover {
-        background-size: contain;
+      .menu {
+        .v-image__image--cover {
+          background-size: contain;
+        }
       }
     }
     i {

@@ -9,12 +9,12 @@
         <img src="../assets/erti-logo.png" alt="" />
         <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
         <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
-        <a><router-link :to="{ name: 'OurTeam' }">НАША КОМАНДА</router-link></a>
+        <a><router-link :to="{ name: 'OurTeam' }">КОМАНДА</router-link></a>
         <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
       </div>
       <div class="content">
         <div class="about-erti">
-          <h1>“ГАМАРДЖОБА”</h1>
+          <!-- <h1>“ГАМАРДЖОБА”</h1> -->
           <p>
             Ресторан «ERTI», это место,<br />
             где сочетаются древние<br />
@@ -45,30 +45,24 @@ export default {};
 <style lang="scss" scoped>
 .wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   background: url("../assets/bg-concept.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   overflow: hidden;
   height: 100vh;
   .container {
-    width: 1280px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    @media (max-width: 1325px) {
-      width: 1200px;          
-    }
+    max-width: 1300px;
+    width: 100%;
+
     .navigation {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      margin: 0 0 100px 0;
+    
       position: relative;
       height: 154px;
-      
       width: 100%;
       a {
         font-family: Open Sans;
@@ -97,7 +91,7 @@ export default {};
           font-style: normal;
           font-weight: normal;
           font-size: 50px;
-          color: #ffffff;
+          color:  #e8c300;
           margin: 0 0 60px 0;
         }
         p {
@@ -117,8 +111,7 @@ export default {};
         p {
           width: 755px;
           font-family: Caveat;
-          font-style: normal;
-          font-weight: normal;
+          font-weight: 400;
           font-size: 30px;
           line-height: 25px;
           text-align: center;
