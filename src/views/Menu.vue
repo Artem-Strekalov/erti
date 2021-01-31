@@ -1,150 +1,99 @@
 <template>
-  <div class="wrapper" :class="{ newWrapper: isActiveNewWrapper }">
-    <div class="container">
-      <div class="navigation">
-        <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
-        <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
-        <a><router-link :to="{ name: 'Wine' }">ВИНО</router-link></a>
-        <a><router-link :to="{ name: 'Сoncept' }">КОНЦЕПЦИЯ</router-link></a>
-        <img src="../assets/erti-logo.png" alt="" />
-        <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
-        <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
-        <a><router-link :to="{ name: 'OurTeam' }">НАША КОМАНДА</router-link></a>
-        <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
-      </div>
-
-      <div class="content">
-        <button v-on:click="prevSlide">
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        </button>
-        <div class="carusel">
-          <div class="slider js-slider">
-            <div
-              class="slider__body"
-              v-bind:style="{ left: sliderOffsetLeft + 'px' }"
-            >
-              <div
-                class="slider__slide js-slide"
-                v-for="slide in sliderList"
-                v-bind:key="slide.img"
-                :style="'background-image: url(' + slide.img + ')'"
-              ></div>
-            </div>
-          </div>
+  <v-app>
+    <div class="wrapper" :class="{ newWrapper: isActiveNewWrapper }">
+      <div class="container">
+        <div class="navigation">
+          <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
+          <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
+          <a><router-link :to="{ name: 'Wine' }">ВИНО</router-link></a>
+          <a><router-link :to="{ name: 'Сoncept' }">КОНЦЕПЦИЯ</router-link></a>
+          <img src="../assets/erti-logo.png" alt="" />
+          <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
+          <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
+          <a><router-link :to="{ name: 'OurTeam' }">КОМАНДА</router-link></a>
+          <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
         </div>
-        <button v-on:click="nextSlide">
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </button>
+        <div class="content">
+          <button @click="model--">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </button>
+          <v-carousel
+            :show-arrows="false"
+            :hide-delimiter-background="true"
+            height="500px"
+            v-model="model"
+          >
+            <div class="menu">
+              <v-carousel-item
+                v-for="(item, i) in items"
+                :key="i"
+                :src="item.src"
+              ></v-carousel-item>
+            </div>
+          </v-carousel>
+          <button @click="model++">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
-      
     </div>
-    
-  </div>
+  </v-app>
 </template>
 <script>
 export default {
   data() {
     return {
-      isActiveNewWrapper: false,
-      // Всего слайдов
-      sliderAllCount: 0,
-      // Номер активного слайда
-      sliderActive: 1,
-      // Отступ тела со слайдами в контейнере
-      sliderOffsetLeft: 0,
-      // Шаг одного слайда = его длина
-      sliderOffsetStep: 0,
-      // Список изображений
-      sliderList: [
+      items: [
         {
-          img: "https://i.ibb.co/0h7Bx9w/1.png",
+          src: "https://i.ibb.co/0h7Bx9w/1.png",
         },
         {
-          img: "https://i.ibb.co/FzHRSBN/2.png",
+          src: "https://i.ibb.co/FzHRSBN/2.png",
         },
       ],
+      model: 0,
+
+      isActiveNewWrapper: false,
     };
   },
   methods: {
-    // Иницилизация слайдера
-    initSlider() {
-      // Получаем элементы сладера и его слайдов
-      let sliderBody = this.$el.querySelector(".js-slider");
-      let sliderSlidies = sliderBody.querySelectorAll(".js-slide");
-      // Записываем длину одного слайда для перелистывания
-      this.sliderOffsetStep = sliderBody.clientWidth;
-      // Общее количество слайдов для стопов
-      this.sliderAllCount = sliderSlidies.length;
-    },
-    // Открыть слайд по номеру
-    openSlide(id) {
-      if (id > 0 && id <= this.sliderAllCount) {
-        this.sliderActive = id;
-
-        // Сдвигаем элемент со слайдами
-        this.sliderOffsetLeft = -(
-          this.sliderActive * this.sliderOffsetStep -
-          this.sliderOffsetStep
-        );
-        if (id == 2) {
-          this.isActiveNewWrapper = true;
-        }
-        if (id == 1) {
-          this.isActiveNewWrapper = false;
-        }
-        console.log(id)
-      }
-    },
-    // Следующий слайд
-    nextSlide() {
-      if (this.sliderActive < this.sliderAllCount) {
-        this.sliderActive += 1;
-
-        this.openSlide(this.sliderActive);
-      }
-    },
-    // Предыдущий слайд
-    prevSlide() {
-      if (this.sliderActive > 1) {
-        this.sliderActive -= 1;
-        this.openSlide(this.sliderActive);
+    slider() {
+      if (this.model == 1) {
+        this.isActiveNewWrapper = true;
+      } else {
+        this.isActiveNewWrapper = false;
       }
     },
   },
-  mounted() {
-    this.initSlider();
-    // Перенастройка слайдера при ресайзе окна
-    window.addEventListener("resize", () => {
-      this.initSlider();
-      this.openSlide(this.sliderActive);
-    });
+  beforeUpdate() {
+    this.slider();
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
 .wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: url("../assets/menu1.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   overflow: hidden;
   height: 100vh;
   .container {
-    width: 1280px;
-    @media (max-width: 1325px) {
-      width: 1200px;
-    }
-    @media (max-width: 1220px) {
-      width: 1150px;
-    }
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1300px;
+    width: 100%;
+    position: relative;
     .navigation {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
 
-      position: relative;
       height: 154px;
       width: 100%;
       a {
@@ -162,47 +111,30 @@ export default {
       }
     }
     .content {
-      width: 100%;
       display: flex;
       align-items: center;
-      padding: 0 30px 0 30px;
-
-      .carusel {
-        width: 100%;
-        height: 500px;
-        padding: 0 30px 0 30px;
-
-        .slider {
-          width: 100%;
-          height: 100%;
-          position: relative;
-          overflow: hidden;
-          &__body {
-            min-width: auto;
-            height: 100%;
-            display: flex;
-            position: relative;
-            align-items: stretch;
-            transition: all 0.5s ease;
-          }
-          &__slide {
-            min-width: 100%;
-            height: 100%;
-
-            background-size: contain;
-            background-position: center;
-            flex: 1 100%;
-            display: flex;
-            justify-content: space-between;
-          }
+      width: 100%;
+      max-width: 1050px;
+      padding: 0 20px;
+      .v-window {
+        padding: 0 20px;
+      }
+      .menu {
+        .v-image__image--cover {
+          background-size: contain;
         }
       }
-      i {
-        margin-top: 80px;
-        font-size: 50px;
-        color: white;
-        opacity: 0.3;
-      }
+    }
+    i {
+      font-size: 50px;
+      color: white;
+      opacity: 0.3;
+    }
+    i:hover {
+      font-size: 90px;
+      transition: 350ms;
+      opacity: 1;
+      color: #e8c300;
     }
   }
 }
