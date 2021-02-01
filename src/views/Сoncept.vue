@@ -60,8 +60,6 @@ export default {};
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-
-      position: relative;
       height: 154px;
       width: 100%;
       a {
@@ -72,6 +70,14 @@ export default {};
         line-height: 18px;
         color: #ffffff;
         padding: 0 5px;
+        width: 133px;
+        text-align: center;
+        transition: 350ms;
+      }
+      a:hover {
+        font-size: 14px;
+        transition: 350ms;
+        color: rgb(243, 207, 46);
       }
       img {
         width: 100px;
@@ -82,6 +88,7 @@ export default {};
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: flex-end;
       width: 100%;
       .about-erti {
         text-align: right;

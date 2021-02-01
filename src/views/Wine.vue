@@ -79,17 +79,24 @@ export default {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      position: relative;
       height: 154px;
       width: 100%;
       a {
-        font-family: Open Sans;
+         font-family: Open Sans;
         font-style: normal;
         font-size: 12px;
         font-weight: bold;
         line-height: 18px;
         color: #ffffff;
         padding: 0 5px;
+        width: 133px;
+        text-align: center;
+        transition: 350ms;
+      }
+      a:hover {
+        font-size: 14px;
+        transition: 350ms;
+        color: rgb(243, 207, 46);
       }
       img {
         width: 100px;
@@ -106,7 +113,7 @@ export default {
         width: 70%;
         height: 450px;
         padding-right: 20px;
-        
+
         i {
           font-size: 40px;
           color: white;
