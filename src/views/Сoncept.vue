@@ -88,7 +88,7 @@ export default {};
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: flex-start;
       width: 100%;
       .about-erti {
         text-align: right;
