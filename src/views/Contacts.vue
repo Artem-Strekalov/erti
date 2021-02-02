@@ -86,6 +86,9 @@ export default {};
       justify-content: space-between;
       width: 100%;
       .info-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         img {
           margin: 0 0 90px 0;
         }
