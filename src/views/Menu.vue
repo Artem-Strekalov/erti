@@ -70,7 +70,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" >
+<style lang="scss">
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -93,7 +93,6 @@ export default {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-
       height: 154px;
       width: 100%;
       a {
@@ -104,11 +103,22 @@ export default {
         line-height: 18px;
         color: #ffffff;
         padding: 0 5px;
+        width: 133px;
+        text-align: center;
+        transition: 350ms;
       }
       img {
         width: 100px;
         height: 100px;
       }
+    }
+    a:hover {
+      font-size: 14px;
+      transition: 350ms;
+      color: rgb(243, 207, 46);
+    }
+    a:active {
+      color: rgb(243, 207, 46);
     }
     .content {
       display: flex;

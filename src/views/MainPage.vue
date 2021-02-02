@@ -6,7 +6,7 @@
         <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
         <a><router-link :to="{ name: 'Wine' }">ВИНО</router-link></a>
         <a><router-link :to="{ name: 'Сoncept' }">КОНЦЕПЦИЯ</router-link></a>
-        <span><img src="../assets/erti-logo.png" alt="" /></span>
+        <span><img src="../assets/erti-logo.png" alt=""/></span>
         <a><router-link :to="{ name: 'Foto' }">МЕДИА </router-link></a>
         <a><router-link :to="{ name: 'Events' }">СОБЫТИЯ</router-link></a>
         <a><router-link :to="{ name: 'OurTeam' }">КОМАНДА</router-link></a>
@@ -17,7 +17,7 @@
         <div class="mainBlock">
           <div class="centralBlock">
             <span>ГРУЗИНСКИЙ РЕСТОРАН</span>
-            <span class="title"><img src="../assets/title.png" alt="" /></span>
+            <span class="title"><img src="../assets/title.png" alt=""/></span>
             <div class="buttons">
               <button @click="dialog = true">ЗАБРОНИРОВАТЬ СТОЛ</button>
               <form
@@ -101,6 +101,14 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("../assets/bg-main.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  height: 100vh;
   /* Стили на окно бронирования */
   .v-sheet.v-card:not(.v-sheet--outlined) {
     height: 400px;
@@ -154,14 +162,6 @@ export default {
     }
   }
   /*  */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: url("../assets/bg-main.jpg") no-repeat;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  height: 100vh;
 
   .title-block {
     height: 100%;
@@ -177,7 +177,7 @@ export default {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+      height: 154px;
       width: 100%;
       a {
         font-family: Open Sans;
@@ -193,9 +193,6 @@ export default {
       a:hover {
         font-size: 14px;
         transition: 350ms;
-        color: rgb(243, 207, 46);
-      }
-      a:active {
         color: rgb(243, 207, 46);
       }
       span {
@@ -214,18 +211,18 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-     
+
       .mainBlock {
         display: flex;
         width: 100%;
         padding-bottom: 90px;
-        
+
         .centralBlock {
           display: flex;
           flex-direction: column;
           align-items: center;
-         margin-left: auto;
-         padding-left: 85px;
+          margin-left: auto;
+          padding-left: 85px;
         }
         span {
           font-family: Open Sans;
@@ -258,7 +255,7 @@ export default {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          width: 440px;   
+          width: 440px;
           button {
             background: #e8c10000;
             border-radius: 5px;
@@ -290,7 +287,7 @@ export default {
           height: 220px;
           margin-left: auto;
           padding-right: 30px;
-         
+
           div {
             width: 60px;
             height: 60px;
