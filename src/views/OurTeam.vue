@@ -44,18 +44,16 @@ export default {};
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-   max-width: 1300px;
+    max-width: 1300px;
     width: 100%;
     height: 100vh;
     padding: 0 0 178px 0;
-   
+
     .navigation {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-
-      position: relative;
       height: 154px;
       width: 100%;
       a {
@@ -66,6 +64,14 @@ export default {};
         line-height: 18px;
         color: #ffffff;
         padding: 0 5px;
+        width: 133px;
+        text-align: center;
+        transition: 350ms;
+      }
+      a:hover {
+        font-size: 14px;
+        transition: 350ms;
+        color: rgb(243, 207, 46);
       }
       img {
         width: 100px;
