@@ -16,7 +16,7 @@
         <div class="about-erti">
           <!-- <h1>“ГАМАРДЖОБА”</h1> -->
           <p>
-            Ресторан <span style="color:#e8c300">«ERTI»</span>, это место,<br />
+            Ресторан <span style="color: #e8c300">«ERTI»</span>, это место,<br />
             где сочетаются древние<br />
             грузинские традиции и свежие<br />
             веяния современности. Здесь<br />
@@ -88,8 +88,8 @@ export default {};
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-
       align-items: flex-start;
+      padding-right:  2.5%;
       width: 100%;
       .about-erti {
         text-align: right;
@@ -115,6 +115,9 @@ export default {};
         }
       }
       .about-Georgia {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         text-align: center;
         p {
           width: 755px;

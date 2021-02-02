@@ -29,7 +29,7 @@
                 ></a>
               </div>
               <div class="facebook">
-                <a href="" class="fab fa-facebook-f"></a>
+                <a href="https://www.facebook.com/ertirestaurant/" class="fab fa-facebook-f"></a>
               </div>
               <div class="telegram">
                 <a href="" class="fab fa-telegram-plane"></a>
