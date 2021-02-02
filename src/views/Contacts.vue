@@ -75,6 +75,7 @@ export default {};
         color: #ffffff;
         padding: 0 5px;
       }
+
       img {
         width: 100px;
         height: 100px;
@@ -84,6 +85,7 @@ export default {};
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      padding: 0 1%;
       width: 100%;
       .info-block {
         display: flex;
@@ -118,6 +120,10 @@ export default {};
               align-items: center;
               transition: 300ms;
               margin: 0 5px;
+              .facebook,
+              .telegram {
+                margin-left: 10px;
+              }
               a {
                 font-size: 20px;
                 color: white;
