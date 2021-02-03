@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <div class="container">
-      <div class="navigation">
+    <div class="navigation">
+      <div class="navMenu">
         <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
         <a><router-link :to="{ name: 'Menu' }">МЕНЮ</router-link></a>
         <a><router-link :to="{ name: 'Wine' }">ВИНО</router-link></a>
@@ -12,75 +12,49 @@
         <a><router-link :to="{ name: 'OurTeam' }">КОМАНДА</router-link></a>
         <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
       </div>
-      <div class="content">
-        <gallery
-          :images="images"
-          :index="index"
-          @close="index = null"
-        ></gallery>
-        <div
-          class="image"
-          v-for="(image, imageIndex) in images"
-          :key="imageIndex"
-          @click="index = imageIndex"
-          :style="{
-            backgroundImage: 'url(' + image + ')',
-            width: '300px',
-            height: '200px',
-          }"
-        ></div>
+    </div>
+    <div class="content">
+      <div class="interior">
+        <h2>ИНТЕРЬЕР РЕСТОРАНА</h2>
+        
+        <div class="galleryInterior"></div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import VueGallery from "vue-gallery";
-
 export default {
   data: function () {
-    return {
-      images: [
-        "https://dummyimage.com/800/ffffff/000000",
-        "https://dummyimage.com/1600/ffffff/000000",
-        "https://dummyimage.com/1280/000000/ffffff",
-        "https://dummyimage.com/400/000000/ffffff",
-        "https://dummyimage.com/800/ffffff/000000",
-        "https://dummyimage.com/1600/ffffff/000000",
-        "https://dummyimage.com/1280/000000/ffffff",
-        "https://dummyimage.com/400/000000/ffffff",
-        "https://dummyimage.com/400/000000/ffffff",
-      ],
-      index: null,
-    };
-  },
-
-  components: {
-    gallery: VueGallery,
+    return {};
   },
 };
 </script> 
 <style lang="scss" scoped>
 .wrapper {
   display: flex;
-  justify-content: center;
-  background: #1c1a1f;
-
+  flex-direction: column;
+  align-items: center;
+  background: white;
   overflow: hidden;
   height: 2000px;
-  padding: 0 30px;
-  .container {
-    max-width: 1300px;
+background: rgba(0, 0, 0, 0.06);
+
+  .navigation {
     width: 100%;
-    .navigation {
+    height: 154px;
+    display: flex;
+    justify-content: center;
+    background: #211d27;
+
+    .navMenu {
       display: flex;
+      justify-content: center;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      background: #1c1a1f;
-      position: sticky;
-      top: 0;
-      height: 154px;
+      max-width: 1300px;
       width: 100%;
+
       a {
         font-family: Open Sans;
         font-style: normal;
@@ -88,22 +62,34 @@ export default {
         font-weight: bold;
         line-height: 18px;
         color: #ffffff;
-        padding: 0 5px;
+        width: 133px;
+        text-align: center;
+        transition: 350ms;
       }
-
       img {
         width: 100px;
         height: 100px;
       }
     }
-    .content {
-      .image {
-        float: left;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        border: 1px solid #ebebeb;
-        margin: 5px;
+  }
+  .content {
+    max-width: 1300px;
+    width: 100%;
+    .interior {
+      padding: 0 2.5%;
+      h2 {
+        font-family: Oswald;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 50px;
+        line-height: 40px;
+
+        color: #f5c400;
+      }
+      .galleryInterior {
+        height: 300px;
+        width: 100%;
+        background: red;
       }
     }
   }
