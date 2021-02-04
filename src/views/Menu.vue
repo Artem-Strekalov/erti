@@ -141,7 +141,6 @@ export default {
       opacity: 0.3;
     }
     i:hover {
-      font-size: 90px;
       transition: 350ms;
       opacity: 1;
       color: #e8c300;

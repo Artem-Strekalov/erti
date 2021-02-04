@@ -88,7 +88,7 @@ export default {};
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: flex-end;
       padding-right:  2.5%;
       width: 100%;
       .about-erti {
@@ -117,7 +117,7 @@ export default {};
       .about-Georgia {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         text-align: center;
         p {
           width: 755px;
