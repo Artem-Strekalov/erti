@@ -14,8 +14,11 @@
           <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
         </div>
         <div class="content">
-          <div class="hi-block"><h1>ГАМАРДЖОБА ГЕНЕЦВАЛЕ !</h1></div>
-          <img src="../assets/loza.png" alt="" />
+          <div class="hi-block">
+            <h1>ГАМАРДЖОБА, ГЕНЕЦВАЛЕ!</h1>
+            <i class="fad fa-chevron-double-down"></i>
+          </div>
+          <div class="image-block"></div>
         </div>
       </div>
     </div>
@@ -55,8 +58,8 @@ export default {
     display: flex;
     justify-content: center;
     background: url("../assets/media-bg.jpg") no-repeat;
-    background-size: cover;
     background-position: center;
+    background-size: cover;
     color: #fefefe;
     padding: 0 20px;
     min-height: 100vh;
@@ -65,11 +68,15 @@ export default {
     .container {
       max-width: 1300px;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .navigation {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        position: relative;
         height: 154px;
         width: 100%;
         a {
@@ -78,17 +85,10 @@ export default {
           font-size: 12px;
           font-weight: bold;
           line-height: 18px;
+          color: #ffffff;
           padding: 0 5px;
-          width: 133px;
-          color: white;
-          text-align: center;
-          transition: 350ms;
         }
-        a:hover {
-          font-size: 14px;
-          transition: 350ms;
-          color: rgb(243, 207, 46);
-        }
+
         img {
           width: 100px;
           height: 100px;
@@ -97,21 +97,53 @@ export default {
       .content {
         display: flex;
         justify-content: space-between;
+        align-items: flex-start;
         width: 100%;
-        height: 651px;
+        height: 90%;
+        @media (max-width: 1025px) {
+          align-items: flex-start;
+        }
         .hi-block {
           display: flex;
           align-items: center;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+          padding: 80px 0 120px 0;
+          position: relative;
+          z-index: 100;
           h1 {
             font-family: Caveat;
             font-weight: bold;
-            font-size: 40px;
-            line-height: 18px;
-            margin: 0 0 50px 0;
+            font-size: calc(5px + 25 * (100vw / 1280));
+            line-height: 45px;          
+          }
+          i {
+            font-size: 70px;
+            color: #e8c300;
+            animation: scroll;
+            animation-duration: 1.3s;
+            animation-iteration-count: infinite;
+            animation-delay: 2s;           
+            position: relative;
+          }
+          @keyframes scroll {
+            0% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(15px);             
+            }
+            100% {
+              transform: translateY(0px);
+            }
           }
         }
-        img {
+        .image-block {
           width: 50%;
+          height: 461px;
+          background: url("../assets/loza.png") no-repeat;
+          background-size: contain;
         }
       }
     }
@@ -140,18 +172,19 @@ export default {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 589px;
+          width: 46%;
           height: 261px;
           background: url("../assets/smear.png") no-repeat;
-          background-size: cover;
+          background-size: contain;
           background-position: center;
           h2 {
             font-family: Oswald;
             font-style: normal;
             font-weight: normal;
             font-size: 40px;
-            line-height: 18px;
+            line-height: 45px;
             color: #e8c300;
+            text-align: center;
           }
         }
         .gallery {
@@ -193,10 +226,10 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 589px;
+        width: 46%;
         height: 261px;
         background: url("../assets/smear.png") no-repeat;
-        background-size: cover;
+        background-size: contain;
         background-position: center;
         h2 {
           font-family: Oswald;
