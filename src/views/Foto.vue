@@ -16,6 +16,7 @@
         <div class="content">
           <div class="hi-block">
             <h1>ГАМАРДЖОБА, ГЕНЕЦВАЛЕ!</h1>
+
             <i class="fad fa-chevron-double-down"></i>
           </div>
           <div class="image-block"></div>
@@ -26,7 +27,25 @@
       <div class="container">
         <div class="content-block">
           <div class="title"><h2>ИНТЕРЬЕР РЕСТОРАНА</h2></div>
-          <div class="gallery"></div>
+
+          <div class="gallery">
+            <gallery
+              :images="images"
+              :index="index"
+              @close="index = null"
+            ></gallery>
+            <div
+              class="image"
+              v-for="(image, imageIndex) in images"
+              :key="imageIndex"
+              @click="index = imageIndex"
+              :style="{
+                backgroundImage: 'url(' + image + ')',
+                width: '300px',
+                height: '200px',
+              }"
+            ></div>
+          </div>
         </div>
         <div class="logo-line">
           <img src="../assets/logo-group-yellow.svg" alt="" />
@@ -35,20 +54,67 @@
     </div>
     <div class="our-guests-block">
       <div class="container">
-        <div class="gallery"></div>
+        <div class="galleryGuests">
+          <v-app>
+            <v-carousel hide-delimiters>
+              <v-carousel-item
+                v-for="(item, i) in items"
+                :key="i"
+                :src="item.src"
+              ></v-carousel-item>
+            </v-carousel>
+            >
+          </v-app>
+        </div>
         <div class="title"><h2>НАШИ ГОСТИ</h2></div>
       </div>
-      <div class="footer"></div>
+      <div class="footer">
+        <p><i class="fa fa-copyright" aria-hidden="true"></i> Made by Erti</p>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import VueGallery from "vue-gallery";
+
 export default {
-  data: function() {
-    return {};
+  data: function () {
+    return {
+      images: [
+        "https://i.ibb.co/GvXfdbV/photo-2021-01-19-16-22-08.jpg",
+        "https://i.ibb.co/NFn7SWz/photo-2021-01-19-16-22-28.jpg",
+        "https://i.ibb.co/6wBYr41/photo-2021-01-19-16-22-35.jpg",
+        "https://i.ibb.co/8MSw4VW/photo-2021-01-19-16-21-45.jpg",
+        "https://i.ibb.co/Ytm1zBR/photo-2021-01-19-16-21-48.jpg",
+        "https://i.ibb.co/2NGRgGF/photo-2021-01-19-16-21-56.jpg",
+      ],
+      index: null,
+      items: [
+        {
+          src:
+            "https://ertirestaurant.ru/uploads/files/Tbilisoba%202019%2011.jpg",
+        },
+        {
+          src:
+            "https://ertirestaurant.ru/uploads/files/Tbilisoba%202019%202.jpg",
+        },
+        {
+          src:
+            "https://ertirestaurant.ru/uploads/files/Tbilisoba%202019%206.jpg",
+        },
+        {
+          src:
+            "https://ertirestaurant.ru/uploads/files/Tbilisoba%202019%208.jpg",
+        },
+      ],
+    };
+  },
+
+  components: {
+    gallery: VueGallery,
   },
 };
-</script>
+</script> 
 <style lang="scss" scoped>
 .body {
   display: flex;
@@ -106,17 +172,18 @@ export default {
         .hi-block {
           display: flex;
           align-items: center;
+          justify-content: center;
           flex-direction: column;
-          justify-content: space-between;
-          height: 100%;
-          padding: 80px 0 120px 0;
+          height: 400px;
+          padding-left: 7%;
+
           position: relative;
           z-index: 100;
           h1 {
             font-family: Caveat;
             font-weight: bold;
             font-size: calc(5px + 25 * (100vw / 1280));
-            line-height: 45px;          
+            line-height: 45px;
           }
           i {
             font-size: 70px;
@@ -124,15 +191,16 @@ export default {
             animation: scroll;
             animation-duration: 1.3s;
             animation-iteration-count: infinite;
-            animation-delay: 2s;           
+            animation-delay: 2s;
             position: relative;
+            margin-top: 200px;
           }
           @keyframes scroll {
             0% {
               transform: translateY(0px);
             }
             50% {
-              transform: translateY(15px);             
+              transform: translateY(15px);
             }
             100% {
               transform: translateY(0px);
@@ -188,9 +256,21 @@ export default {
           }
         }
         .gallery {
+          display: flex;
+          flex-flow: row wrap;
+          align-content: space-between;
+          justify-content: space-between;
           width: 50%;
           height: 600px;
-          background: #c4c4c4;
+          background: white;
+          .image {
+            float: left;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            border: 1px solid #ebebeb;
+            margin: 5px;
+          }
         }
       }
       .logo-line {
@@ -217,10 +297,18 @@ export default {
       justify-content: space-between;
       max-width: 1300px;
       width: 100%;
-      .gallery {
+      .galleryGuests {
         width: 50%;
         height: 600px;
         background: #c4c4c4;
+        .image {
+          float: left;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+          border: 1px solid #ebebeb;
+          margin: 5px;
+        }
       }
       .title {
         display: flex;
@@ -242,9 +330,18 @@ export default {
       }
     }
     .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100vw;
       height: 90px;
       background: #1d1723;
+      p {
+        color: white;
+        font-family: "Comfortaa";
+      
+        font-weight: normal;
+      }
     }
   }
 }
