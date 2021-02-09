@@ -339,8 +339,9 @@ export default {
       p {
         color: white;
         font-family: "Comfortaa";
-      
-        font-weight: normal;
+        .fa {
+          font-weight: 200;
+        }
       }
     }
   }
