@@ -1,86 +1,53 @@
 <template>
-  <div class="main" data app>
-    <div class="nav"></div>
-    <v-app>
-      <div class="content">
-        <button @click="model--">
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        </button>
-        <v-carousel
-          :hide-delimiters="true"
-          :show-arrows="false"
-          :hide-delimiter-background="true"
-          height="500px"
-          v-model="model"
-        >
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            :src="item.src"
-          ></v-carousel-item>
-        </v-carousel>
-        <button @click="model++">
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </button>
-      </div>
-    </v-app>
+  <div class="fat">
+    <gallery :images="images" :index="index" @close="index = null"></gallery>
+    <div
+      class="image"
+      v-for="(image, imageIndex) in images"
+      :key="imageIndex"
+      @click="index = imageIndex"
+      :style="{
+        backgroundImage: 'url(' + image + ')',
+        width: '300px',
+        height: '200px',
+      }"
+    ></div>
   </div>
-  <!-- cycle
-        height=100%
-        hide-delimiter-background
-        show-arrows-on-hover -->
 </template>
+
 <script>
+import VueGallery from "vue-gallery";
+
 export default {
-  data() {
+  data: function () {
     return {
-      items: [
-        {
-          src: "https://cdn.tvc.ru/pictures/o/131/475.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
-        },
+      images: [
+        "https://dummyimage.com/800/ffffff/000000",
+        "https://dummyimage.com/1600/ffffff/000000",
+        "https://dummyimage.com/1280/000000/ffffff",
+        "https://dummyimage.com/400/000000/ffffff",
       ],
-      model: 0,
+      index: null,
     };
   },
-  methods: {
-    slider() {
-      if (this.model == 1) {
-        console.log("сейчас");
-      }
-    },
-  },
-  beforeUpdate() {
-    this.slider();
+
+  components: {
+    gallery: VueGallery,
   },
 };
-</script>
-<style lang="scss"  >
-.main {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .nav {
-    width: 500px;
-    height: 30px;
-    background-color: red;
-  }
-  .content {
-    width: 400px;
-    height: 400px;
-    .v-image__image--cover {
-      background-size: contain;
-    }
+</script> 
+
+<style lang=scss scoped>
+.fat {
+  height: 400px;
+  width: 50%;
+  .image {
+    float: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 1px solid #ebebeb;
+    margin: 5px;
   }
 }
 </style>
