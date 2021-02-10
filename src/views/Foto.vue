@@ -41,8 +41,10 @@
               @click="index = imageIndex"
               :style="{
                 backgroundImage: 'url(' + image + ')',
-                width: '300px',
-                height: '200px',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                width: '46%',
+                height: '33%',
               }"
             ></div>
           </div>
@@ -63,13 +65,12 @@
                 :src="item.src"
               ></v-carousel-item>
             </v-carousel>
-            >
           </v-app>
         </div>
         <div class="title"><h2>НАШИ ГОСТИ</h2></div>
       </div>
       <div class="footer">
-        <p><i class="fa fa-copyright" aria-hidden="true"></i> Made by Erti</p>
+        <p>&#169; Made by Erti</p>
       </div>
     </div>
   </div>
@@ -78,7 +79,7 @@
 import VueGallery from "vue-gallery";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       images: [
         "https://i.ibb.co/GvXfdbV/photo-2021-01-19-16-22-08.jpg",
@@ -114,7 +115,7 @@ export default {
     gallery: VueGallery,
   },
 };
-</script> 
+</script>
 <style lang="scss" scoped>
 .body {
   display: flex;
@@ -142,7 +143,6 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        position: relative;
         height: 154px;
         width: 100%;
         a {
@@ -153,8 +153,15 @@ export default {
           line-height: 18px;
           color: #ffffff;
           padding: 0 5px;
+          width: 133px;
+          text-align: center;
+          transition: 350ms;
         }
-
+        a:hover {
+          font-size: 14px;
+          transition: 350ms;
+          color: rgb(243, 207, 46);
+        }
         img {
           width: 100px;
           height: 100px;
@@ -267,9 +274,20 @@ export default {
             float: left;
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: center center;
+            background-position: center;
             border: 1px solid #ebebeb;
             margin: 5px;
+            position: relative;
+          }
+          .image:hover:after {
+            content: "";
+            position: absolute;
+            width: 90px;
+            height: 53px;
+            background: url("../assets/eye.png");
+            background-size: cover;
+            top: 38%;
+            left: 33%;
           }
         }
       }
@@ -305,7 +323,7 @@ export default {
           float: left;
           background-size: cover;
           background-repeat: no-repeat;
-          background-position: center center;
+          background-position: center;
           border: 1px solid #ebebeb;
           margin: 5px;
         }
