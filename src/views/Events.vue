@@ -37,6 +37,29 @@
             ></iframe>
           </div>
         </div>
+        <div class="eventsTwo">
+          <div class="video">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/I4ANsoOyhho"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="text">
+            <h2>ТБИЛИСОБА!</h2>
+            <p>
+              Тбилисоба — ежегодный общенародный праздник, посвящённый сбору
+              урожая и городу Тбилиси, который традиционно отмечается в столице
+              Грузии в первые выходные октября. В это время в городе
+              устраиваются ярмарки, шествия, концерты и спортивные мероприятия.
+              Также проходит награждение выдающихся деятелей искусства и спорта
+              званием «Почётный гражданин Тбилиси».
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -51,7 +74,9 @@
   justify-content: center;
   width: 100%;
   height: 2000px;
-  background: #e7e7e7;
+  background: url("../assets/events.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
 
   .content {
     display: flex;
@@ -75,7 +100,7 @@
         font-size: 12px;
         font-weight: bold;
         line-height: 18px;
-        color: #333333;
+        color: white;
         padding: 0 5px;
       }
 
@@ -89,27 +114,31 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      padding: 0 5px;
-      .eventsOne {
+      background: rgba(0, 0, 0, 0);
+
+      .eventsOne,
+      .eventsTwo {
         display: flex;
         align-items: center;
-       
+
         width: 100%;
         height: 400px;
-        background: #fffff2;
-        border-radius: 20px;
+
         .text {
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           padding: 0 30px;
+
           h2 {
             font-family: Caveat;
             font-style: normal;
             font-weight: bold;
             font-size: 40px;
             line-height: 18px;
+            margin-bottom: 30px;
+            color: #e8c300;
           }
           p {
             text-align: center;
@@ -118,10 +147,21 @@
             font-weight: 300;
             font-size: 20px;
             line-height: 20px;
+            color: white;
           }
         }
-        .video{
+        .video {
           padding-right: 30px;
+          iframe {
+            border-radius: 20px;
+          }
+        }
+      }
+      .eventsTwo {
+        margin-top: 50px;
+        .video {
+          padding-left: 30px;
+          padding-right: 0;
         }
       }
     }
