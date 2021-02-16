@@ -79,7 +79,7 @@
 import VueGallery from "vue-gallery";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       images: [
         "https://i.ibb.co/GvXfdbV/photo-2021-01-19-16-22-08.jpg",
@@ -129,7 +129,7 @@ export default {
     background-size: cover;
     color: #fefefe;
     padding: 0 20px;
-    min-height: 100vh;
+    min-height: 90vh;
     width: 100vw;
     overflow: hidden;
     .container {
@@ -172,7 +172,8 @@ export default {
         justify-content: space-between;
         align-items: flex-start;
         width: 100%;
-        height: 90%;
+        height: 400px;
+        padding-left: 7%;
         @media (max-width: 1025px) {
           align-items: flex-start;
         }
@@ -182,17 +183,18 @@ export default {
           justify-content: center;
           flex-direction: column;
           height: 400px;
-          padding-left: 7%;
 
           position: relative;
           z-index: 100;
           h1 {
+            margin-top: 50px;
             font-family: Caveat;
             font-weight: bold;
-            font-size: calc(5px + 25 * (100vw / 1280));
+            font-size: calc(10px + 25 * (100vw / 1280));
             line-height: 45px;
           }
           i {
+            margin-top: 50px;
             font-size: 70px;
             color: #e8c300;
             animation: scroll;
@@ -200,7 +202,6 @@ export default {
             animation-iteration-count: infinite;
             animation-delay: 2s;
             position: relative;
-            margin-top: 200px;
           }
           @keyframes scroll {
             0% {
@@ -315,10 +316,12 @@ export default {
       justify-content: space-between;
       max-width: 1300px;
       width: 100%;
+      
       .galleryGuests {
         width: 50%;
-        height: 600px;
-        background: #c4c4c4;
+        height: 200px;
+        border-radius: 20px;
+        
         .image {
           float: left;
           background-size: cover;
