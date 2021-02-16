@@ -351,6 +351,7 @@ export default {
       }
     }
     .footer {
+      
       display: flex;
       justify-content: center;
       align-items: center;
