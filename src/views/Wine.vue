@@ -110,8 +110,8 @@ export default {
       .blockMenu {
         display: flex;
         align-items: center;
-        width: 70%;
-        height: 450px;
+        width: 90%;
+        height: 100%;
         padding-right: 20px;
 
         i {

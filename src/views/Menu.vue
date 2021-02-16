@@ -20,6 +20,7 @@
           <v-carousel
             :show-arrows="false"
             :hide-delimiter-background="true"
+            :hide-delimiters="true"
             height="500px"
             v-model="model"
           >
@@ -75,7 +76,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url("../assets/menu1.jpg") no-repeat;
+  background: url("../assets/menu-bg.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   overflow: hidden;
