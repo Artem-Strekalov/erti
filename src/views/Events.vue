@@ -73,7 +73,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 2000px;
+  height: 100%;
   background: url("../assets/events.jpg") no-repeat;
   background-size: cover;
   background-position: center;
@@ -90,24 +90,32 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      position: relative;
       height: 154px;
       width: 100%;
-
       a {
         font-family: Open Sans;
         font-style: normal;
         font-size: 12px;
         font-weight: bold;
         line-height: 18px;
-        color: white;
+        color: #ffffff;
         padding: 0 5px;
+        width: 133px;
+        text-align: center;
+        transition: 350ms;
       }
-
       img {
         width: 100px;
         height: 100px;
       }
+    }
+    a:hover {
+      font-size: 14px;
+      transition: 350ms;
+      color: rgb(243, 207, 46);
+    }
+    a:active {
+      color: rgb(243, 207, 46);
     }
     .events {
       display: flex;

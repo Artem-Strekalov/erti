@@ -63,7 +63,6 @@ export default {};
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      position: relative;
       height: 154px;
       width: 100%;
       a {
@@ -74,18 +73,28 @@ export default {};
         line-height: 18px;
         color: #ffffff;
         padding: 0 5px;
+        width: 133px;
+        text-align: center;
+        transition: 350ms;
       }
-
       img {
         width: 100px;
         height: 100px;
       }
     }
+    a:hover {
+      font-size: 14px;
+      transition: 350ms;
+      color: rgb(243, 207, 46);
+    }
+    a:active {
+      color: rgb(243, 207, 46);
+    }
     .content {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      padding: 0 1%;
+      padding: 0 3%;
       width: 100%;
       .info-block {
         display: flex;

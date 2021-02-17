@@ -125,7 +125,7 @@ export default {
       display: flex;
       align-items: center;
       width: 100%;
-      max-width: 1050px;
+      max-width: 1200px;
       padding: 0 20px;
       .v-window {
         padding: 0 20px;

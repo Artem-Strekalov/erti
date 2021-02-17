@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :class="{ newWrapper: isActiveNewWrapper }">
+  <div class="wrapper">
     <div class="container">
       <div class="navigation">
         <a><router-link :to="{ name: 'MainPage' }">ГЛАВНАЯ</router-link></a>
@@ -12,15 +12,17 @@
         <a><router-link :to="{ name: 'OurTeam' }">КОМАНДА</router-link></a>
         <a><router-link :to="{ name: 'Contacts' }">КОНТАКТЫ</router-link></a>
       </div>
-      <div class="content-block">
-        <img src="../assets/chef-foto.jpg" alt="" />
-        <div class="info-block">
-          <h1>Мастер Шеф</h1>
-          <p>
-            Мы не лучше или хуже других, просто любим удивлять людей. <br />
-            Мы маленький островок большой и радушной Грузии в Ростове. <br />
-            <span> А.Базандарашвили</span>
-          </p>
+      <div class="content">
+        <div class="content-block">
+          <img src="../assets/chef-foto.jpg" alt="" />
+          <div class="info-block">
+            <h1>Мастер Шеф</h1>
+            <p>
+              Мы не лучше или хуже других, просто любим удивлять людей. <br />
+              Мы маленький островок большой и радушной Грузии в Ростове. <br />
+              <span> А.Базандарашвили</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -47,7 +49,6 @@ export default {};
     max-width: 1300px;
     width: 100%;
     height: 100vh;
-    padding: 0 0 178px 0;
 
     .navigation {
       display: flex;
@@ -78,47 +79,54 @@ export default {};
         height: 100px;
       }
     }
-    .content-block {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .content {
       width: 100%;
-      img {
-        width: 446px;
-        height: 498px;
-        background-size: contain;
-      }
-      .info-block {
-        color: #ffffff;
-        text-align: center;
-        vertical-align: middle;
-        h1 {
-          position: relative;
-          font-family: Open Sans;
-          font-weight: normal;
-          font-size: 36px;
-          line-height: 48px;
-          margin: 0 0 40px 0;
+      height: 100%;
+      display: flex;
+      padding: 0 3%;
+      .content-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        img {
+          width: 446px;
+          height: 498px;
+          background-size: contain;
+          border-radius: 20px;
         }
-        h1::before {
-          content: "";
-          background: #e8c300;
-          border-radius: 50px;
-          width: 60px;
-          height: 5.11px;
-          position: absolute;
-          top: 148%;
-          left: 44.5%;
-        }
-        p {
-          width: 675px;
-          font-family: Caveat;
-          font-weight: 550;
-          font-size: 30px;
-          line-height: 30px;
-          text-align: right;
-          span {
-            line-height: 97px;
+        .info-block {
+          color: #ffffff;
+          text-align: center;
+          vertical-align: middle;
+          h1 {
+            position: relative;
+            font-family: Open Sans;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 48px;
+            margin: 0 0 40px 0;
+          }
+          h1::before {
+            content: "";
+            background: #e8c300;
+            border-radius: 50px;
+            width: 60px;
+            height: 5.11px;
+            position: absolute;
+            top: 148%;
+            left: 44.5%;
+          }
+          p {
+            width: 675px;
+            font-family: Caveat;
+            font-weight: 550;
+            font-size: 30px;
+            line-height: 30px;
+            text-align: right;
+            span {
+              line-height: 97px;
+            }
           }
         }
       }
